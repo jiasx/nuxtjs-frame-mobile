@@ -1,0 +1,115 @@
+@import '~assets/styles/variables.less';
+
+/*********动画*********/
+.trans_all{-webkit-transition:  all 300ms;transition:  all 300ms;}
+.trans_color{-webkit-transition:  color 300ms;transition:  color 300ms;}
+.trans_background{-webkit-transition:  background 300ms;transition:  background 300ms;}
+.trans_bottom{-webkit-transition:  bottom 300ms;transition:  bottom 300ms;}
+.trans_left{-webkit-transition:  left 300ms linear;transition:  left 300ms linear;}
+.trans_height{-webkit-transition:  height 300ms;transition:  height 300ms;}
+.trans_width{-webkit-transition:  width 300ms;transition:  width 300ms;}
+.trans_opacity{-webkit-transition:  opacity 300ms;transition:  opacity 300ms;}
+
+/*********通用*********/
+/**** 支持弹性滚动 ****/
+.overflow-scrolling {
+    -webkit-overflow-scrolling: touch;
+}
+
+/**** 禁止长按操作 ****/
+.user-operate {
+    user-select: none; /* 禁止长按选择文字 */
+    -webkit-touch-callout: none;
+}
+
+/**** 禁止字体调整 ****/
+.text-adjust {
+    text-size-adjust: 100%;
+}
+
+/**** 美化滚动占位 ****/
+/*滚动条整体部分*/
+::-webkit-scrollbar { 
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+}
+/* 滚动条轨道部分 */
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+/* 滚动条滑块部分 */
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-image: linear-gradient(135deg, #09f, #3c9);
+}
+
+/* 识别文本换行 */
+.text-line {
+    white-space: pre-line;
+}
+
+/* 美化表单外观 */
+.form-style {
+    appearance: none;
+}
+
+/* input输入框在ios下会默认有顶部内阴影的问题，在Android平台下没有这个问题 */
+input[type="text"] {
+    -webkit-appearance: none;
+}
+
+/* 移动端文字居中问题 垂直方向  */
+/* 兼容：不建议用 line-height, padding */
+.text-center {
+    display: table-cell;    
+    text-align: center;    
+    vertical-align: middle;
+}
+
+/* 移动端ios的 input框圆角变成直角 */
+.ios-border {
+    border-radius: 0;
+}
+
+/* 禁止操作 css3属性 */
+.pointer-events {
+    pointer-events:none;
+}
+
+/* 开启GPU硬件加速 */
+.transform-gpu {
+    transform: translate3d(0,0,0);   
+}
+
+/* 1像素问题 */
+.border-1px(@color) {
+	&::after {
+    content: '';
+		display : block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: @color;
+    transform: scaleY(0.5);
+	}
+}
+
+/* 超出省略号 */
+.overflow-ellipsis(@line) {
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+    overflow: hidden;
+    -webkit-line-clamp: @line;
+  }
+
+/* 超宽超出省略号 */
+.overflow-width-ellipsis(@maxWidth) {
+    max-width: @maxWidth;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
